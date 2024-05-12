@@ -19,14 +19,13 @@
 
 /* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
 
-/*.loader {
-	 width: 40px;
-	height: 20px; 
+.loader {
+	width: 40px;
+	height: 20px;
 	margin: 40px;
 	background: orange;
 	animation: loading-1 1.5s infinite linear;
 }
-
 .loader:before,
 .loader:after {
 	content: "";
@@ -74,9 +73,9 @@
 	50% {
 		transform: rotate(calc(var(--s, 1) * 180deg));
 	}
-}*/
+}
 
-.loader {
+/*.loader {
 	width: 45px;
 	aspect-ratio: 0.75;
 	--c: no-repeat linear-gradient(#333 0 0);
@@ -99,3 +98,4 @@
 		background-position: 0% 50%, 50% 50%, 100% 100%;
 	}
 }
+*/
