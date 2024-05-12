@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.input {
+		@apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
+	}
+}
+
+.no-scrollbars {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.no-scrollbars::-webkit-scrollbar {
+	display: none;
+}
+
+/* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+
+/*.loader {
+	 width: 40px;
+	height: 20px; 
+	margin: 40px;
+	background: orange;
+	animation: loading-1 1.5s infinite linear;
+}
+
+.loader:before,
+.loader:after {
+	content: "";
+	position: absolute;
+	background: inherit;
+	bottom: 100%;
+	width: 50%;
+	height: 100%;
+	animation: inherit;
+	animation-name: loading-2;
+}
+.loader:before {
+	left: 0;
+	transform-origin: bottom left;
+	--s: -1;
+}
+
+.loader:after {
+	right: 0;
+	transform-origin: bottom right;
+}
+
+@keyframes loading-1 {
+	0%,
+	10% {
+		transform: translateY(0%) scaleY(1);
+	}
+	49.99% {
+		transform: translateY(-50%) scaleY(1);
+	}
+	50% {
+		transform: translateY(-50%) scaleY(-1);
+	}
+	90%,
+	100% {
+		transform: translateY(-100%) scaleY(-1);
+	}
+}
+
+@keyframes loading-2 {
+	10%,
+	90% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(calc(var(--s, 1) * 180deg));
+	}
+}*/
+
+.loader {
+	width: 45px;
+	aspect-ratio: 0.75;
+	--c: no-repeat linear-gradient(#333 0 0);
+	background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+	background-size: 20% 50%;
+	animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+	20% {
+		background-position: 0% 0%, 50% 50%, 100% 50%;
+	}
+	40% {
+		background-position: 0% 100%, 50% 0%, 100% 50%;
+	}
+	60% {
+		background-position: 0% 50%, 50% 100%, 100% 0%;
+	}
+	80% {
+		background-position: 0% 50%, 50% 50%, 100% 100%;
+	}
+}
