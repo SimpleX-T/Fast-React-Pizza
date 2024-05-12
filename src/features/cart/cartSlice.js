@@ -17,12 +17,32 @@ const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addItem(state, action) {
+			//payload = newItem
 			state.cart.push(action.payload);
 		},
-		// deleteItem(state, action) {},
-		// increaseItemQuantity(state, action) {},
-		// decreaseItemQuantity(state, action) {},
-		// clearCart(state, action) {},
+		deleteItem(state, action) {
+			//payload = pizzaId
+			state.cart = state.cart.filter(
+				(item) => item.id !== action.payload
+			);
+		},
+		increaseItemQuantity(state, action) {
+			//payload = pizzaId
+			const item = state.cart.find((item) => item.id === action.payload);
+
+			item.quantity++;
+			item.totalPrice = item.unitPrice * item.quantity;
+		},
+		decreaseItemQuantity(state, action) {
+			//payload = pizzaId
+			const item = state.cart.find((item) => item.id === action.payload);
+
+			item.quantity--;
+			item.totalPrice = item.unitPrice * item.quantity;
+		},
+		clearCart(state) {
+			state.cart = [];
+		},
 	},
 });
 
