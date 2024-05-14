@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 import DeleteItemButton from "./DeleteItemButton";
 import UpdateItemQuantity from "./UpdateItemQuantity";
+import { decreaseItemQuantity, increaseItemQuantity } from "./cartSlice";
 
 function CartItem({ item }) {
 	const { pizzaId, name, quantity, totalPrice } = item;
@@ -16,8 +17,14 @@ function CartItem({ item }) {
 				<p className='text-sm font-bold'>
 					{formatCurrency(totalPrice)}
 				</p>
-				<UpdateItemQuantity action='+' onClick={} />
-				<UpdateItemQuantity action='-' />
+				<UpdateItemQuantity
+					action='+'
+					onClick={() => dispatch(increaseItemQuantity(pizzaId))}
+				/>
+				<UpdateItemQuantity
+					action='-'
+					onClick={() => dispatch(decreaseItemQuantity(pizzaId))}
+				/>
 				<DeleteItemButton pizzaId={pizzaId} />
 			</div>
 		</li>
