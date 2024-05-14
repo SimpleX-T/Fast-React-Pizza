@@ -1,10 +1,24 @@
-function UpdateItemQuantity({ action, onClick }) {
+import { useDispatch } from "react-redux";
+import Button from "../../ui/Button";
+import { decreaseItemQuantity, increaseItemQuantity } from "./cartSlice";
+
+function UpdateItemQuantity({ pizzaId, currentQuantity }) {
+	const dispatch = useDispatch();
+
 	return (
-		<button
-			className='w-5 h-5 flex justify-center items-center bg-slate-800 rounded-full hover:bg-slate-600 transition-colors duration-300'
-			onClick={onClick}>
-			<span className='text-white cursor-pointer'>{action}</span>
-		</button>
+		<div className='flex items-center gap-2 md:gap-3'>
+			<Button
+				type='round'
+				onClick={() => dispatch(decreaseItemQuantity(pizzaId))}>
+				-
+			</Button>
+			<span>{currentQuantity}</span>
+			<Button
+				type='round'
+				onClick={() => dispatch(increaseItemQuantity(pizzaId))}>
+				+
+			</Button>
+		</div>
 	);
 }
 export default UpdateItemQuantity;
