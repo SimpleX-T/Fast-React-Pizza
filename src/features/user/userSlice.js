@@ -17,6 +17,8 @@ export default userSlice.reducer;
 
 export const getUsername = (state) => state.user.userName;
 
+export const getUserFirstname = (state) => state.user.userName.split(" ")[0];
+
 /*
 function getPosition() {
   return new Promise(function (resolve, reject) {
