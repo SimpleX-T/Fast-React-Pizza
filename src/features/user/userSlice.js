@@ -29,9 +29,9 @@ export const fetchAddress = createAsyncThunk(
 		const addressObj = await getAddress(position);
 		const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`;
 
+		console.log("gotten Position");
 		// 3) Then we return an object with the data that we are interested in
 		// the returned result will be the 'action.payload'
-		console.log(position);
 		return { position, address };
 	}
 );
@@ -46,18 +46,16 @@ const userSlice = createSlice({
 	},
 	extraReducers: (builder) =>
 		builder
-			.addCase(
-				fetchAddress.pending,
-				(state, action) => (state.status = "loading")
-			)
+			.addCase(fetchAddress.pending, (state, action) => {
+				state.status = "loading";
+			})
 			.addCase(fetchAddress.fulfilled, (state, action) => {
 				state.position = action.payload.position;
 				state.address = action.payload.address;
 				state.status = "idle";
 			})
 			.addCase(fetchAddress.rejected, (state, action) => {
-				// state.error = action.error.message;
-				state.error = JSON.stringify(action.error);
+				state.error = action.error.message;
 				state.status = "error";
 			}),
 });
@@ -66,5 +64,7 @@ export const { updateName } = userSlice.actions;
 export default userSlice.reducer;
 
 export const getUsername = (state) => state.user.userName;
+
+export const getUser = (state) => state.user;
 
 export const getUserFirstname = (state) => state.user.userName.split(" ")[0];
