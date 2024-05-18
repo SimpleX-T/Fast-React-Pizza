@@ -17,7 +17,7 @@ const isValidPhone = (str) =>
 
 function CreateOrder() {
 	const {
-		username,
+		userName,
 		status: addressStatus,
 		position,
 		address,
@@ -52,7 +52,7 @@ function CreateOrder() {
 						className='input grow'
 						type='text'
 						name='customer'
-						defaultValue={username}
+						defaultValue={userName}
 						required
 					/>
 				</div>
