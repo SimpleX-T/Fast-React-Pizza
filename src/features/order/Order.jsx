@@ -8,10 +8,16 @@ import {
 	formatDate,
 } from "../../utils/helpers";
 import { useEffect } from "react";
+import UpdateOrder from "./UpdateOrder";
+import { useSelector } from "react-redux";
+import { getUser } from "../user/userSlice";
+// import { updateName } from "../user/userSlice";
+// import { useDispatch } from "react-redux";
 
 function Order() {
 	const order = useLoaderData();
 	const fetcher = useFetcher();
+	// const dispatch = useDispatch();
 
 	useEffect(
 		function () {
@@ -92,6 +98,7 @@ function Order() {
 					{formatCurrency(orderPrice + priorityPrice)}
 				</p>
 			</div>
+			{!priority && <UpdateOrder />}
 		</div>
 	);
 }
