@@ -7,6 +7,7 @@ const initialState = {
 	position: {},
 	address: "",
 	error: "",
+	isAuthenticated: false,
 };
 
 function getPosition() {
@@ -42,6 +43,7 @@ const userSlice = createSlice({
 	reducers: {
 		updateName(state, action) {
 			state.userName = action.payload;
+			state.isAuthenticated = true;
 		},
 	},
 	extraReducers: (builder) =>

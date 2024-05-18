@@ -78,7 +78,7 @@ function CreateOrder() {
 					<label className='sm:basis-40'>Address</label>
 					<div className='grow relative'>
 						<input
-							className='input w-full'
+							className='input w-full z-10'
 							type='text'
 							name='address'
 							required
@@ -91,7 +91,7 @@ function CreateOrder() {
 							</p>
 						)}
 						{!position.latitude && !position.longitude && (
-							<span className='absolute right-[3px] top-[3px] md:right-[5px] md:top-[5px]'>
+							<span className='absolute z-10 right-[3px] top-[3px] md:right-[5px] md:top-[5px]'>
 								<Button
 									disabled={isLoadingAddress}
 									type='small'
